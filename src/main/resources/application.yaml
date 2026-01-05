@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: send-mail-microsoft-graph
+
+# application.yml
+azure:
+  graph:
+    tenant-id: ${AZURE_TENANT_ID:tu-tenant-id}
+    client-id: ${AZURE_CLIENT_ID:tu-client-id}
+    client-secret: ${AZURE_CLIENT_SECRET:tu-client-secret}
+    # Email del usuario que enviará los correos (debe tener licencia de Exchange)
+    sender-email: ${SENDER_EMAIL:remitente@tudominio.com}
+
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_param
+
+logging:
+  level:
+    com.example.mailsender: DEBUG
+    org.springframework.web: DEBUG
